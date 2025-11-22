@@ -9,6 +9,7 @@ body {
     margin-right: auto;
     width: 520px;
     max-width: 100%;
+    user-select: none;
 }
 
 .oreo-layer {
@@ -17,6 +18,7 @@ body {
     z-index: 0;
     animation: slideOnTop 0.3s ease;
     max-width: 100%;
+    user-select: none;
 }
 
 
@@ -131,6 +133,7 @@ body {
     transition: all;
     opacity: 0.8;
     cursor: pointer;
+    user-select: none;
 }
 
 .add-button:hover {

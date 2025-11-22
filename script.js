@@ -21,7 +21,12 @@ var lastLayerIndex = 2
 
 
 function addlayer(type) {
-    audio[Math.floor(Math.random() * 7 + 1)].play()
+    try {
+        audio[Math.floor(Math.random() * 7 + 1)].play()
+    } catch (e) {
+        console.error(e)
+    }
+
     const newLayer = document.createElement('img')
     if (type == 'top')
     {
@@ -108,6 +113,8 @@ function addToTitle(toAdd) {
     }
     else
         title.textContent = titleText
+
+    document.title = titleText
 }
 
 function remFromTitle(amount) {
@@ -121,20 +128,25 @@ function remFromTitle(amount) {
 }
 
 function parseOreo(title) {
+    originalLength = title.length
+    i = 0
     while(title.length > 0) {
         if (title.substring(title.length - 1, title.length) == 'o') {
-            if (Math.floor(Math.random() * 2))
+            if (i > originalLength / 2)
                 addlayer('top')
             else
                 addlayer('bot')
             title = title.substring(0, title.length - 1)
+            i += 1
         }
         else if (title.length > 1 && (title.substring(title.length - 2, title.length) == 're')) {
             addlayer('mid')
             title = title.substring(0, title.length - 2)
+            i += 2
         }
         else
             title = title.substring(0, title.length - 1)
+            i += 1
     }
 }
 

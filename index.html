@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Oreo</title>
+	<meta name="keywords" content="oreo, orereo, orerereo, cookie creator, oreo generator, custom oreo, interactive cookie, oreo builder, cookie game, oreo stack">
 	<link rel="stylesheet" href="style.css">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6K8B8MRFQ7"></script>
@@ -66,7 +67,7 @@
 		<p>
 			Made by <a href="https://twitter.com/alex_gulko" target="_blank">Alex Gulko</a> in 2021.
 		<br>
-		<a href="https://github.com/GulkoA/Oreo" target="_blank">Source code here</a>
+		<a href="https://github.com/gulkoa/Oreo" target="_blank">Source code here</a>
 		<a href="https://dribbble.com/shots/2104197-Oreo" target="_blank">Wonderful oreo art by Tom Johnson</a>
 		<a href="https://icons.getbootstrap.com/" target="_blank">Icons by Bootstrap</a>
 		<a href="http://twitter.com/intent/tweet?text=Check%20out%20this%20Oreo%20generator!%20https%3A%2F%2Fgulkoa.github.io%2FOreo%2F" target="_blank">Tweet</a>
@@ -148,6 +149,16 @@
 			importSubmitButton.textContent = "Cancel"
 		else
 			importSubmitButton.textContent = "Assemble"
+	}
+
+	// import from url param
+	query = window.location.search.substring(1)
+	if (query) {
+		console.log("Importing from URL param: " + query)
+		clearAll()
+		setTimeout(() => {
+			parseOreo(query)
+		}, 200)
 	}
 </script>
 </html>
